@@ -1,0 +1,15 @@
+version: '2'
+services:
+  wiremock:
+    image: rodolpheche/wiremock
+    container_name: wiremock-local
+    ports: 
+      - "8787:8080"
+    volumes:
+      - ./files:/home/wiremock/__files
+      - ./mappings:/home/wiremock/mappings
+    networks:
+      - my_network
+networks:
+  my_network:
+    external: true
